@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- build:css css/vendor.min.css -->
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+    <!-- endbuild -->
+
+    <!-- build:css css/style.min.css -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- endbuild -->
+
+    <title>Form Validation</title>
+</head>
+<body>
+
+
+    <div class="container">
+
+        <form id="form">
+
+            <div class="general-block">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3>Общая информация</h3>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label" for="name">Имя</label>
+                            <input type="text" class="form-control" id="name" aria-describedby="name-help" placeholder="Введите своё имя">
+                            <span id="name-help" class="help-block hidden">Имя должно содержать только кириллицу!</span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label" for="surname">Фамилия</label>
+                            <input type="text" class="form-control" id="surname" aria-describedby="surname-help" placeholder="Введите свою фамилию">
+                            <span id="surname-help" class="help-block hidden">Фамилия должна содержать только кириллицу!</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="position">Должность</label>
+                            <select class="form-control" id="position">
+                                <option>Дизайнер</option>
+                                <option>Программист</option>
+                                <option>Менеджер</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="age" class="col-form-label">Возраст</label>
+                            <input class="form-control" type="number" value="20" id="age" aria-describedby="age-help" placeholder="Введите свой возраст">
+                            <span id="age-help" class="help-block hidden">Введите корректный возраст!</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="control-label" for="about">Пару слов о себе</label>
+                        <textarea class="form-control" rows="3" id="about" aria-describedby="about-help" placeholder="Напишите немного о себе (минимум 20 слов)"></textarea>
+                        <span id="about-help" class="help-block hidden">Необходимо ввести минимум 20 слов!</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="account-block">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3>Данные аккаунта</h3>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label" for="login">Логин</label>
+                            <input type="text" class="form-control" id="login" aria-describedby="login-help" placeholder="Введите свой логин">
+                            <span id="login-help" class="help-block hidden">Логин может содержать только латинские буквы и цифры!</span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label" for="email">Почта</label>
+                            <input type="email" class="form-control" id="email" aria-describedby="email-help" placeholder="Введите свой e-mail">
+                            <span id="email-help" class="help-block hidden">Введите корректный почтовый адрес!</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label" for="pass">Пароль</label>
+                            <input type="password" class="form-control" id="pass" aria-describedby="pass-help" placeholder="Введите пароль">
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label" for="second-pass">Повторите пароль</label>
+                            <input type="password" class="form-control" id="second-pass" aria-describedby="second-pass-help" placeholder="Повторите пароль">
+                            <span id="second-pass-help" class="help-block hidden">Пароли не совпадают!</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="submit-block">
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <button type="submit" class="btn btn-primary" id="submit" disabled="disabled">Готово!</button>
+                        <span id="submit-help" class="help-block">Для продолжения необходимо заполнить все поля</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+
+    <!-- <script src="js/validation.js"></script> -->
+
+</body>
+</html>
