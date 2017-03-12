@@ -2,7 +2,31 @@
 
 (function() {
 
-    var form = document.querySelector("#form");
+    /* кнопка submit */
+    var submitBtn = document.querySelector("#submit");
+    submitBtn.disabled = true;
+
+
+    /* инициализация всех булевых переменных */
+    var isNameCorrect = false,
+        isSurnameCorrect = false,
+        isAgeCorrect = true,
+        isAboutCorrect = false,
+        isLoginCorrect = false,
+        isEmailCorrect = false,
+        isPassCorrect = false;
+
+
+
+    function checkForm() {
+        if (isNameCorrect && isSurnameCorrect && isAgeCorrect && isAboutCorrect && isLoginCorrect && isEmailCorrect && isPassCorrect) {
+            submitBtn.disabled = false;
+            document.querySelector("#submit-help").classList.add("hidden");
+        } else {
+            submitBtn.disabled = true;
+            document.querySelector("#submit-help").classList.remove("hidden");
+        }
+    }
 
 
 
@@ -17,20 +41,28 @@
 
         var re = /^[А-я]+$/;
 
+        isNameCorrect = false;
+
         if (name !== "" && re.test(name) === false) {
             nameField.parentElement.classList.add("has-error");
             nameField.classList.add("form-control-error");
             nameHelp.classList.remove("hidden");
+
         } else {
             nameField.parentElement.classList.remove("has-error");
             nameField.classList.remove("form-control-error");
             nameHelp.classList.add("hidden");
+
+            if (name !== "") {
+                isNameCorrect = true;
+            }
         }
 
     }
 
     nameField.addEventListener("input", function (event) {
         validateName(nameField.value);
+        checkForm();
     });
 
 
@@ -46,6 +78,8 @@
 
         var re = /^[А-я]+$/;
 
+        isSurnameCorrect = false;
+
         if (surname !== "" && re.test(surname) === false) {
             surnameField.parentElement.classList.add("has-error");
             surnameField.classList.add("form-control-error");
@@ -54,12 +88,17 @@
             surnameField.parentElement.classList.remove("has-error");
             surnameField.classList.remove("form-control-error");
             surnameHelp.classList.add("hidden");
+
+            if (surname !== "") {
+                isSurnameCorrect = true;
+            }
         }
 
     }
 
     surnameField.addEventListener("input", function (event) {
         validateSurname(surnameField.value);
+        checkForm();
     });
 
 
@@ -73,6 +112,8 @@
 
     function validateAge(age) {
 
+        isAgeCorrect = false;
+
         if (!(parseInt(age) > 0 && parseInt(age) < 100) && age !== "") {
             ageField.parentElement.classList.add("has-error");
             ageField.classList.add("form-control-error");
@@ -81,12 +122,17 @@
             ageField.parentElement.classList.remove("has-error");
             ageField.classList.remove("form-control-error");
             ageHelp.classList.add("hidden");
+
+            if (age !== "") {
+                isAgeCorrect = true;
+            }
         }
 
     }
 
     ageField.addEventListener("input", function (event) {
         validateAge(ageField.value);
+        checkForm();
     });
 
 
@@ -107,7 +153,9 @@
 
     function validateAbout(about) {
 
-        if (about !== "" && countWords(about) <= 20) {
+        isAboutCorrect = false;
+
+        if (about !== "" && countWords(about) < 20) {
             aboutField.parentElement.classList.add("has-error");
             aboutField.classList.add("form-control-error");
             aboutHelp.classList.remove("hidden");
@@ -115,12 +163,17 @@
             aboutField.parentElement.classList.remove("has-error");
             aboutField.classList.remove("form-control-error");
             aboutHelp.classList.add("hidden");
+
+            if (about !== "") {
+                isAboutCorrect = true;
+            }
         }
 
     }
 
     aboutField.addEventListener("blur", function (event) {
         validateAbout(aboutField.value);
+        checkForm();
     });
 
     /* это обработчик необходим для того, чтобы убрать
@@ -146,6 +199,8 @@
 
     function validateLogin(login) {
 
+        isLoginCorrect = false;
+
         var re = /^[A-z0-9]+$/;
 
         if (login !== "" && re.test(login) === false) {
@@ -156,12 +211,17 @@
             loginField.parentElement.classList.remove("has-error");
             loginField.classList.remove("form-control-error");
             loginHelp.classList.add("hidden");
+
+            if (login !== "") {
+                isLoginCorrect = true;
+            }
         }
 
     }
 
     loginField.addEventListener("input", function (event) {
         validateLogin(loginField.value);
+        checkForm();
     });
 
 
@@ -176,6 +236,8 @@
 
     function validateEmail(email) {
 
+        isEmailCorrect = false;
+
         var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         if (email !== "" && re.test(email) === false) {
@@ -186,12 +248,17 @@
             emailField.parentElement.classList.remove("has-error");
             emailField.classList.remove("form-control-error");
             emailHelp.classList.add("hidden");
+
+            if (email !== "") {
+                isEmailCorrect = true;
+            }
         }
 
     }
 
     emailField.addEventListener("blur", function (event) {
         validateEmail(emailField.value);
+        checkForm();
     });
 
     emailField.addEventListener("input", function (event) {
@@ -215,6 +282,8 @@
 
     function checkPasswords(firstPass, secondPass) {
 
+        isPassCorrect = false;
+
         if ((firstPass !== secondPass) && firstPass !== "" && secondPass !== "") {
 
             passField.parentElement.classList.add("has-error");
@@ -233,16 +302,22 @@
             secondPassField.classList.remove("form-control-error");
             secondPassHelp.classList.add("hidden");
 
+            if (firstPass !== "" && secondPass !== "") {
+                isPassCorrect = true;
+            }
+
         }
 
     }
 
     passField.addEventListener("blur", function (event) {
         checkPasswords(passField.value, secondPassField.value);
+        checkForm();
     });
 
     secondPassField.addEventListener("blur", function (event) {
         checkPasswords(passField.value, secondPassField.value);
+        checkForm();
     });
 
     /* эти два обработчика используются для того,
@@ -276,15 +351,5 @@
 
         }
     });
-
-
-
-
-
-    var submitBtn = document.querySelector("#submit");
-
-    submitBtn.addEventListener("click", function (event) {
-        event.preventDefault();
-    })
 
 })();
