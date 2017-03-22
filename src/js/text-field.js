@@ -4,7 +4,7 @@
 (function() {
 
 
-    function TextField(fieldElem, wordsCount) {
+    function TextField(formObj, fieldElem, wordsCount) {
         this._wordsCount = wordsCount;
         var self = this;
 

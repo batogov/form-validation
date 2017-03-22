@@ -4,7 +4,7 @@
 (function() {
 
 
-    function StringField(fieldElem, re) {
+    function StringField(formObj, fieldElem, re) {
         this._re = re;
         var self = this;
 

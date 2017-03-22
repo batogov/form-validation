@@ -4,7 +4,7 @@
 (function() {
 
 
-    function NumberField(fieldElem, min, max) {
+    function NumberField(formObj, fieldElem, min, max) {
         this._min = min;
         this._max = max;
         var self = this;
