@@ -32,7 +32,7 @@
 
                 <div class="row">
                     <div class="col-md-3">
-                        <div class="form-group">
+                        <div class="form-group name-field">
                             <label class="control-label" for="name">Имя</label>
                             <input type="text" class="form-control" id="name" aria-describedby="name-help" placeholder="Введите своё имя">
                             <span id="name-help" class="help-block hidden">Имя должно содержать только кириллицу!</span>
@@ -40,7 +40,7 @@
                     </div>
 
                     <div class="col-md-3">
-                        <div class="form-group">
+                        <div class="form-group surname-field">
                             <label class="control-label" for="surname">Фамилия</label>
                             <input type="text" class="form-control" id="surname" aria-describedby="surname-help" placeholder="Введите свою фамилию">
                             <span id="surname-help" class="help-block hidden">Фамилия должна содержать только кириллицу!</span>
@@ -50,7 +50,7 @@
 
                 <div class="row">
                     <div class="col-md-3">
-                        <div class="form-group">
+                        <div class="form-group position-field">
                             <label for="position">Должность</label>
                             <select class="form-control" id="position">
                                 <option>Дизайнер</option>
@@ -61,7 +61,7 @@
                     </div>
 
                     <div class="col-md-3">
-                        <div class="form-group">
+                        <div class="form-group age-field">
                             <label for="age" class="col-form-label">Возраст</label>
                             <input class="form-control" type="number" value="20" id="age" aria-describedby="age-help" placeholder="Введите свой возраст">
                             <span id="age-help" class="help-block hidden">Введите корректный возраст!</span>
@@ -71,9 +71,11 @@
 
                 <div class="row">
                     <div class="col-md-6">
-                        <label class="control-label" for="about">Пару слов о себе</label>
-                        <textarea class="form-control" rows="3" id="about" aria-describedby="about-help" placeholder="Напишите немного о себе (минимум 20 слов)"></textarea>
-                        <span id="about-help" class="help-block hidden">Необходимо ввести минимум 20 слов!</span>
+                        <div class="form-group about-field">
+                            <label class="control-label" for="about">Пару слов о себе</label>
+                            <textarea class="form-control" rows="3" id="about" aria-describedby="about-help" placeholder="Напишите немного о себе (минимум 20 слов)"></textarea>
+                            <span id="about-help" class="help-block hidden">Необходимо ввести минимум 20 слов!</span>
+                        </div>
                     </div>
                 </div>
 
@@ -89,7 +91,7 @@
 
                 <div class="row">
                     <div class="col-md-3">
-                        <div class="form-group">
+                        <div class="form-group login-field">
                             <label class="control-label" for="login">Логин</label>
                             <input type="text" class="form-control" id="login" aria-describedby="login-help" placeholder="Введите свой логин">
                             <span id="login-help" class="help-block hidden">Логин может содержать только латинские буквы и цифры!</span>
@@ -97,7 +99,7 @@
                     </div>
 
                     <div class="col-md-3">
-                        <div class="form-group">
+                        <div class="form-group email-field">
                             <label class="control-label" for="email">Почта</label>
                             <input type="email" class="form-control" id="email" aria-describedby="email-help" placeholder="Введите свой e-mail">
                             <span id="email-help" class="help-block hidden">Введите корректный почтовый адрес!</span>
@@ -139,7 +141,13 @@
 
     </div>
 
-    <script src="js/validation.js"></script>
+    <script src="js/field.js"></script>
+
+    <script src="js/text-field.js"></script>
+    <script src="js/string-field.js"></script>
+    <script src="js/number-field.js"></script>
+
+    <script src="js/main.js"></script>
 
 </body>
 </html>
